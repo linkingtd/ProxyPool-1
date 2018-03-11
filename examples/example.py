@@ -8,7 +8,7 @@ sys.path.insert(0, dir)
 
 
 def get_proxy():
-    r = requests.get('http://127.0.0.1:5000/get')
+    r = requests.get('http://127.0.0.1:5555/random')
     proxy = BeautifulSoup(r.text, "lxml").get_text()
     return proxy
 
@@ -22,6 +22,7 @@ def crawl(url, proxy):
 def main():
     proxy = get_proxy()
     html = crawl('http://docs.jinkan.org/docs/flask/', proxy)
+    print(proxy)
     print(html)
 
 if __name__ == '__main__':
